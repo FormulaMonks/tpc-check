@@ -35,3 +35,18 @@ cd tpc-check
 npm install
 npm run test
 ```
+
+## About Citrusbyte
+
+![Citrusbyte](http://i.imgur.com/W6eISI3.png)
+
+This software is lovingly maintained and funded by [Citrusbyte](https://www.citrusbyte.com). Development is led by [Dimitar Valchanov](https://github.com/dvalchanov).
+At Citrusbyte, we specialize in solving difficult computer science problems for startups and the enterprise.
+
+At Citrusbyte we believe in and support open source software.
+* Check out more of our open source software at Citrusbyte Labs.
+* Learn more about [our work](https://citrusbyte.com/portfolio).
+* [Hire us](https://citrusbyte.com/contact) to work on your project.
+* [Want to join the team?](http://careers.citrusbyte.com)
+
+*Citrusbyte and the Citrusbyte logo are trademarks or registered trademarks of Citrusbyte, LLC.*
