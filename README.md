@@ -12,7 +12,7 @@ passed callback when done.
 ### Example
 
 ```js
-impost tpc from 'tpc-check'
+import tpc from 'tpc-check'
 
 tpc(enabled => {
   if (!enabled) {
