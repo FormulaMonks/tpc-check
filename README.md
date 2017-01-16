@@ -1,3 +1,5 @@
+[![License](https://img.shields.io/github/license/citrusbyte/tpc-check.svg)](https://www.github.com/citrusbyte/tpc-check)
+
 # TPC Check
 
 Check if the user has enabled third-party cookies.
