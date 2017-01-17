@@ -4,10 +4,41 @@
 
 Check if the user has enabled third-party cookies.
 
-There is no direct way of checking whether third-party cookies are enabled or
-not. In order to find out we should try to set and retrieve such cookie. This is
-achieved by a backend service that interacts with `tpc-check` and executes the
-passed callback when done.
+Third-party cookies are basically regular cookies but set from different domain.
+They are useful for recognizing the user's browser, and aggregate requests and
+data around a particular user. Unfortunately, they can be used for tracking
+purposes by an entity that the user hasn't agreed to, so there are a lot of
+users who disabled them in order to protect their privacy.
+
+But in the same time there are certain types of software (payments, tracking
+services, analytics, etc.) that might need third-party cookies to work and
+disabling them would mean that the user won't be able to complete certain step.
+In such cases it is useful to have a way to check whether they are allowed or
+not and show message to the user explaining why they will need to enable them
+in order to complete what they started.
+
+Unfortunately, there is no direct way to check whether third-party cookies are
+enabled or not (compared to regular cookies, for which check is very easy). This
+library exists exactly for these cases, mainstreaming this process and
+extracting this functionality in an easy to use interface.
+
+### Inner Working
+
+There are several steps to find out whether third-party cookies are enabled:
+- Load a script from third-party domain (there is a separate backend service,
+  that this library is communicating with which handles this) and try to set a
+  cookie from it.
+- When the script is loaded, load another script from the same domain, which
+  tries to retrieve the cookie that was initialy set.
+- If the retrieval is successful, then third-party cookies are enabled. If not,
+  then they are disabled.
+- Execute the passed callback with the result from this check.
+
+### Install
+
+```bash
+npm install --save tpc-check
+```
 
 ### Example
 
@@ -21,19 +52,16 @@ tpc(enabled => {
 })
 ```
 
-### Install
+### Development and Contribution
+
+If you discovered a bug or have a feature suggestion, feel free to create an
+issue on GitHub or open a Pull Request.
 
 ```bash
-npm install --save tpc-check
-```
-
-### Development
-
-```bash
-git clone url
+git clone git@github.com:citrusbyte/tpc-check.git
 cd tpc-check
 npm install
-npm run test
+npm test
 ```
 
 ## About Citrusbyte
