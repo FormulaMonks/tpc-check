@@ -1,3 +1,4 @@
+[![npm version](https://img.shields.io/npm/v/tpc-check.svg)](https://www.npmjs.com/package/tpc-check)
 [![License](https://img.shields.io/github/license/citrusbyte/tpc-check.svg)](https://www.github.com/citrusbyte/tpc-check)
 
 # TPC Check
