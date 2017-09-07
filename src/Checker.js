@@ -1,11 +1,13 @@
 import { addScript, removeScript } from './utils'
 
 const BASE_URL = 'https://2plexv84m5.execute-api.us-east-1.amazonaws.com/prod'
-const SET_COOKIE_URL = `${BASE_URL}/set-third-party-cookie.js`
-const GET_COOKIE_URL = `${BASE_URL}/get-third-party-cookie.js`
+const DEFAULT_SET_COOKIE_URL = `${BASE_URL}/set-third-party-cookie.js`
+const DEFAULT_GET_COOKIE_URL = `${BASE_URL}/get-third-party-cookie.js`
 
 export default class Checker {
-  constructor(callback) {
+  constructor(callback, options={}) {
+    this.setCookieUrl = options.setCookieUrl || DEFAULT_SET_COOKIE_URL
+    this.getCookieUrl = options.getCookieUrl || DEFAULT_GET_COOKIE_URL
     this.callback = callback
     this.scripts = {
       load: null,
@@ -31,7 +33,7 @@ export default class Checker {
    */
   initializeTrigger() {
     this.listenTrigger()
-    this.scripts.trigger = addScript(GET_COOKIE_URL)
+    this.scripts.trigger = addScript(this.getCookieUrl)
   }
 
   /**
@@ -52,7 +54,7 @@ export default class Checker {
    */
   initializeLoad() {
     this.listenLoad()
-    this.scripts.load = addScript(SET_COOKIE_URL)
+    this.scripts.load = addScript(this.setCookieUrl)
   }
 
   /**
