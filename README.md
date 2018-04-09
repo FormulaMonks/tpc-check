@@ -30,7 +30,7 @@ There are several steps to find out whether third-party cookies are enabled:
   that this library is communicating with which handles this) and try to set a
   cookie from it.
 - When the script is loaded, load another script from the same domain, which
-  tries to retrieve the cookie that was initialy set.
+  tries to retrieve the cookie that was initially set.
 - If the retrieval is successful, then third-party cookies are enabled. If not,
   then they are disabled.
 - Execute the passed callback with the result from this check.
