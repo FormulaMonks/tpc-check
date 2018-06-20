@@ -53,6 +53,31 @@ tpc(enabled => {
 })
 ```
 
+#### Overriding default urls for cookie setting and getting
+
+```js
+import tpc from 'tpc-check'
+
+tpc(enabled => {
+  if (!enabled) {
+    alert('Please, enable third-party cookies to proceed')
+  }
+}, {
+  getCookieUrl: 'http://my-domain.com/get-cookie.js',
+  setCookieUrl: 'http://my-domain.com/set-cookie.js',
+})
+```
+
+Here the get-cookie.js contains:
+```js
+window.triggerTPCCallback(true)
+```
+
+And set-cookie.js contains:
+```js
+window.loadTPCScript()
+```
+
 ### Development and Contribution
 
 If you discovered a bug or have a feature suggestion, feel free to create an
